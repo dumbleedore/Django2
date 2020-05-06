@@ -1,0 +1,25 @@
+{% load bootstrap4 %} <!-- Carregando Bootstrap !-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    {% bootstrap_css %} <!-- carregando css do bootstrap !-->
+</head>
+<body>
+    <div class="container">
+        <h1>Contato</h1>
+        {% bootstrap_messages %}
+        <form action="{% url 'contato' %}" method="POST" class="form" autocomplete="off">
+            {% csrf_token %} <!-- questão de segurança !-->
+            {% bootstrap_form form %} <!-- recebendo formulário e aplicando css do bootstrap !-->
+            {% buttons %} <!--  aplicando bootstrap ao botão !-->
+            <button type="submit" class="btn-primary">Enviar Mensagem</button>
+            {% endbuttons %}
+        </form>
+    </div>
+
+
+{% bootstrap_javascript jquery='full' %} <!-- carregando javascript do bootstrap !-->
+</body>
+</html>
